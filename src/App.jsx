@@ -54,7 +54,24 @@ const ValidatePassword = () => {
 //   )
   
 // }
-
+const FavoriteColor = () => {
+const [currColor, setCurrColor] = useState('');
+const [currFavColor, setCurrFavColor] = useState('')
+  
+  const clickHandler = () => {
+ const favColor = setCurrFavColor(currColor)
+  }
+  
+  return (
+    <div>
+    <label htmlFor="favColor">Enter Your Favorite Color: 
+    </label>
+    <input id="favColor" onChange={(event)=> setCurrColor(event.target.value)}/>
+      <button onClick={clickHandler}>Display Color</button>
+      {currFavColor && <p>Your Favorite color is: {currFavColor}</p>}
+    </div>
+  )
+}
 
 export default function App() {
   return (
@@ -65,6 +82,7 @@ export default function App() {
       <ValidatePassword />
       <br/>
       <br/>
+      <FavoriteColor/>
       
     </main>
   );
