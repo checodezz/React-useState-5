@@ -52,27 +52,48 @@ const ValidatePassword = () => {
 //       <button>Calculate Age</button>
 //     </div>
 //   )
-  
+
 // }
 const FavoriteColor = () => {
-const [currColor, setCurrColor] = useState('');
-const [currFavColor, setCurrFavColor] = useState('')
-  
+  const [currColor, setCurrColor] = useState("");
+  const [currFavColor, setCurrFavColor] = useState("");
+
   const clickHandler = () => {
- const favColor = setCurrFavColor(currColor)
-  }
-  
+    setCurrFavColor(currColor);
+  };
+
   return (
     <div>
-    <label htmlFor="favColor">Enter Your Favorite Color: 
-    </label>
-    <input id="favColor" onChange={(event)=> setCurrColor(event.target.value)}/>
+      <label htmlFor="favColor">Enter Your Favorite Color:</label>
+      <input
+        id="favColor"
+        onChange={(event) => setCurrColor(event.target.value)}
+      />
       <button onClick={clickHandler}>Display Color</button>
       {currFavColor && <p>Your Favorite color is: {currFavColor}</p>}
     </div>
-  )
-}
+  );
+};
 
+const SearchQuery = () => {
+  const [currSearch, setCurrSearch] = useState("");
+  const [currSearchDisplay, setCurrSearchDisplay] = useState("");
+  const clickHandler = () => {
+    setCurrSearchDisplay(currSearch);
+  };
+
+  return (
+    <div>
+      <label htmlFor="search">Enter your search query: </label>
+      <input
+        id="search"
+        onChange={(event) => setCurrSearch(event.target.value)}
+      />
+      <button onClick={clickHandler}>Search</button>
+      {currSearchDisplay && <p>Searching for: {currSearchDisplay}</p>}
+    </div>
+  );
+};
 export default function App() {
   return (
     <main>
@@ -80,10 +101,12 @@ export default function App() {
       <br />
       <br />
       <ValidatePassword />
-      <br/>
-      <br/>
-      <FavoriteColor/>
-      
+      <br />
+      <br />
+      <FavoriteColor />
+      <br />
+      <br />
+      <SearchQuery />
     </main>
   );
 }
